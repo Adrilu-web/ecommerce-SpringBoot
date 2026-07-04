@@ -27,102 +27,154 @@ public class EcommerceApplication {
         return args -> {
             if (categoriaService.listarTodas().isEmpty()) {
 
-                Categoria ropa = categoriaService.guardar(
-                    new Categoria(null, "Ropa masculina", "Indumentaria para hombre"));
-                Categoria ropaFem = categoriaService.guardar(
-                    new Categoria(null, "Ropa femenina", "Indumentaria para mujer"));
-                Categoria joyeria = categoriaService.guardar(
-                    new Categoria(null, "Joyería", "Anillos, collares y accesorios"));
-                Categoria electronica = categoriaService.guardar(
-                    new Categoria(null, "Electrónica", "Dispositivos y accesorios tecnológicos"));
+                // 1. Registro e inicialización de las categorías principales
+                Categoria frutaSeca = categoriaService.guardar(
+                    new Categoria(null, "Fruta Seca", "Fruta seca y deshidratada")
+                );
+                Categoria varios = categoriaService.guardar(
+                    new Categoria(null, "Varios", "Productos Varios")
+                );
+                    
+                // 2. Carga automatizada de productos cruzados por categoría
 
-                // Ropa masculina
-                productoService.guardar(new Producto(null,
-                    "Mochila plegable para notebook", 109.95, 20,
-                    "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-                    ropa));
-                productoService.guardar(new Producto(null,
-                    "Camiseta slim fit manga larga", 22.30, 50,
-                    "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png",
-                    ropa));
-                productoService.guardar(new Producto(null,
-                    "Campera de algodón", 55.99, 30,
-                    "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png",
-                    ropa));
-                productoService.guardar(new Producto(null,
-                    "Pantalón casual slim fit", 15.99, 40,
-                    "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png",
-                    ropa));
+                // --- CATEGORÍA: FRUTA SECA ---
+                productoService.guardar(new Producto(
+                    null, 
+                    "Nueces Peladas", 
+                    19800.0, 30, 
+                    "https://i.postimg.cc/gJ28pLDN/photo-1605525483148-8fb743b620da-q-80-w-1374-auto-format-fit-crop-ixlib-rb-4-1.jpg", 
+                    frutaSeca
+                ));
 
-                // Joyería
-                productoService.guardar(new Producto(null,
-                    "Pulsera dragón oro y plata", 695.00, 5,
-                    "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_t.png",
-                    joyeria));
-                productoService.guardar(new Producto(null,
-                    "Anillo de oro macizo micropavé", 168.00, 8,
-                    "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png",
-                    joyeria));
-                productoService.guardar(new Producto(null,
-                    "Anillo de compromiso bañado en oro blanco", 9.99, 15,
-                    "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png",
-                    joyeria));
-                productoService.guardar(new Producto(null,
-                    "Aros dobles de acero inoxidable rosado", 10.99, 12,
-                    "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png",
-                    joyeria));
+                productoService.guardar(new Producto(
+                    null, 
+                    "Almendras", 
+                    11680.0, 45, 
+                    "https://i.postimg.cc/CMNMD6wB/premium-photo-1675237625910-e5d354c03987-q-80-w-1374-auto-format-fit-crop-ixlib-rb-4-1.jpg", 
+                    frutaSeca
+                ));
 
-                // Electrónica
-                productoService.guardar(new Producto(null,
-                    "Disco externo portátil 2TB USB 3.0", 64.00, 25,
-                    "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_t.png",
-                    electronica));
-                productoService.guardar(new Producto(null,
-                    "SSD interno 1TB SATA III", 109.00, 18,
-                    "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_t.png",
-                    electronica));
-                productoService.guardar(new Producto(null,
-                    "SSD 256GB 3D NAND SATA III", 109.00, 22,
-                    "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_t.png",
-                    electronica));
-                productoService.guardar(new Producto(null,
-                    "Disco externo 4TB para PlayStation 4", 114.00, 10,
-                    "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_t.png",
-                    electronica));
-                productoService.guardar(new Producto(null,
-                    "Monitor Full HD 21.5\" IPS", 599.00, 7,
-                    "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_t.png",
-                    electronica));
-                productoService.guardar(new Producto(null,
-                    "Monitor curvo gaming 49\" 144Hz QLED", 999.99, 4,
-                    "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_t.png",
-                    electronica));
+                productoService.guardar(new Producto(
+                    null, 
+                    "Pasas rubias", 
+                    7172.0, 20, 
+                    "https://i.postimg.cc/bwqQg5t7/photo-1642102903918-b97c37955bbf-q-80-w-1374-auto-format-fit-crop-ixlib-rb-4-1.jpg", 
+                    frutaSeca
+                ));
 
-                // Ropa femenina
-                productoService.guardar(new Producto(null,
-                    "Campera 3 en 1 para nieve", 56.99, 20,
-                    "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_t.png",
-                    ropaFem));
-                productoService.guardar(new Producto(null,
-                    "Campera moto cuero sintético con capucha", 29.95, 35,
-                    "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_t.png",
-                    ropaFem));
-                productoService.guardar(new Producto(null,
-                    "Campera impermeable con capucha", 39.99, 28,
-                    "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2t.png",
-                    ropaFem));
-                productoService.guardar(new Producto(null,
-                    "Remera manga corta escote bote", 9.85, 45,
-                    "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_t.png",
-                    ropaFem));
-                productoService.guardar(new Producto(null,
-                    "Remera deportiva manga corta", 7.95, 50,
-                    "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_t.png",
-                    ropaFem));
-                productoService.guardar(new Producto(null,
-                    "Remera casual de algodón manga corta", 12.99, 38,
-                    "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_t.png",
-                    ropaFem));
+                productoService.guardar(new Producto(
+                    null, 
+                    "Pasas negras", 
+                    6270.0, 25, 
+                    "https://i.postimg.cc/rppjqpqy/31.jpg", 
+                    frutaSeca
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Ciruelas sin carozo", 
+                    14000.0, 40, 
+                    "https://i.postimg.cc/JnzzT932/9.jpg", 
+                    frutaSeca
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Castañas de Caju", 
+                    8230.0, 15, 
+                    "https://i.postimg.cc/xC89GLnr/5.jpg", 
+                    frutaSeca
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Datiles", 
+                    24300.0, 35, 
+                    "https://i.postimg.cc/jC0Kr9NK/datilrojo.jpg", 
+                    frutaSeca
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Pistachos Con Cascara", 
+                    10057.0, 10, 
+                    "https://i.postimg.cc/CLknfpcG/32.jpg", 
+                    frutaSeca
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Almendras Con Chocolate", 
+                    21100.0, 15, 
+                    "https://i.postimg.cc/ncvQgtbd/144.jpg", 
+                    frutaSeca
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Mani Con Cáscara", 
+                    2066.0, 80, 
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBf_IidEk-iz-dJQ9ZqwdMnG_Pc6cfXBKtBLSRp_rY5_ZvwGVlEJWrkftoFL5b5sRJkiKw3tnBZQ5Nc8ZZE4MxSI_FT7RvvJY0d8Tqum6SJg&s=10", 
+                    frutaSeca
+                ));
+                
+                // --- CATEGORÍA: VARIOS ---
+                productoService.guardar(new Producto(
+                    null, 
+                    "Granola Premium", 
+                    11200.0, 
+                    50, 
+                    "https://i.postimg.cc/HLZrCYLg/128.jpg", 
+                    varios
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Aceite De Coco", 
+                    21000.0, 20, 
+                    "https://i.postimg.cc/Z5JnBBBm/CHIA-GRAAL-NEUTRO-360-1.jpg", 
+                    varios
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Miel Organica Liquida", 
+                    7100.0, 15, 
+                    "https://i.postimg.cc/9fq6c1mQ/227.jpg", 
+                    varios
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Crema De Mani", 
+                    3400.0, 60, 
+                    "https://i.postimg.cc/cHSb0SkF/sola-TA-1.jpg", 
+                    varios
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Cereal Mix Light", 
+                    14340.0, 40, 
+                    "https://i.postimg.cc/9fGLxkXZ/117.jpg", 
+                    varios
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Aceite De Coco Virgen", 
+                    16100.0, 12, 
+                    "https://i.postimg.cc/pdtZnBQT/CHIA-GRAAL-VIRGEN-360.jpg", 
+                    varios
+                ));
+
+                productoService.guardar(new Producto(
+                    null, 
+                    "Hummus De Garbanzo", 
+                    6700.0, 25, 
+                    "https://i.postimg.cc/RV6QsYXh/hummus-de-garbanzo-Pampa.jpg", 
+                    varios
+                ));
             }
         };
     }
