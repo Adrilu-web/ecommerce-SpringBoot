@@ -3,6 +3,7 @@ Versión del proyecto TechLab- ecommerce con Java Spring Boot para curso de Tale
 
 ## Descripción del proyecto
 Backend de un sistema de ecommerce desarrollado con Spring Boot.
+
 Permite gestionar 
 - productos, 
 - categorías
@@ -52,9 +53,7 @@ Crear la base:
 ## Carga inicial de datos
 El proyecto incluye un CommandLineRunner que carga categorías y productos solo si la base está vacía.
 Esto permite iniciar el backend con datos listos para probar.
-El catálogo inicial está organizado de la siguiente manera:
-* **Fruta Seca:** Nueces, Almendras, Pasas rubias/negras, Ciruelas, Castañas, Dátiles y Pistachos.
-* **Varios:** Granola Premium, Aceite de Coco (Neutro/Virgen), Miel Orgánica, Crema de Maní y Hummus.
+
 
 ### Entidades
 **Categorías**
@@ -75,7 +74,7 @@ El catálogo inicial está organizado de la siguiente manera:
 **Carrito**
 
 - id: autogenerado
-- productos: lista de ítems del carrito
+    - productos: relación OneToMany con CarritoProducto
     - cascade = ALL: elimina ítems al eliminar el carrito
     - orphanRemoval = true: elimina ítems si se quitan de la lista
 
